@@ -1,12 +1,13 @@
+import requests
 from django.conf import settings
 
 def google(token):
     from google.oauth2 import id_token
-    from google.auth.transport import requests
+    from google.auth.transport import requests as grequests
 
     try:
         # Specify the CLIENT_ID of the app that accesses the backend:
-        idinfo = id_token.verify_oauth2_token(token, requests.Request())
+        idinfo = id_token.verify_oauth2_token(token, grequests.Request())
 
         # Or, if multiple clients access the backend server:
         # idinfo = id_token.verify_oauth2_token(token, requests.Request())
