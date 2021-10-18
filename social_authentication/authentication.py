@@ -35,6 +35,6 @@ def get_fb_user(token):
     :param token:
     :return: {'first_name', last_name, birthday, gender, email}
     """
-    fb_profile_endpoint = f'/v6.0/me/?fields=first_name,last_name,birthday,gender,email&access_token={token}'
+    fb_profile_endpoint = f'/v6.0/me/?fields=first_name,last_name,birthday,email&access_token={token}'
     fb_user = requests.get(settings.FACEBOOK_BASE_URL + fb_profile_endpoint)
     return fb_user.json()
